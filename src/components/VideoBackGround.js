@@ -12,8 +12,8 @@ const VideoBackGround = ({ movieid }) => {
     <div className="relative w-screen h-screen overflow-hidden">
       <iframe
         className="absolute inset-0 w-full h-full"
-        src={`https://www.youtube.com/embed/${trailerVideo.key}?autoplay=1&mute=1&controls=0&rel=0&showinfo=0`}
-        title="YouTube video player"
+       src={`https://www.youtube.com/embed/${trailerVideo.key}?autoplay=1&mute=1&controls=0&showinfo=0&modestbranding=1&loop=1&playlist=${trailerVideo.key}`}
+        title="Movie Trailer"
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
