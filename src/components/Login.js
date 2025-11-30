@@ -89,13 +89,14 @@ const Login = () => {
     <div className="relative min-h-screen bg-black">
       <Header />
       <div className="absolute inset-0">
-        <img className="w-full h-full object-cover" src={BG_URL} alt="logo" />
+        <img className="w-full h-full object-cover opacity-50" src={BG_URL} alt="logo" />
+        <div className="absolute inset-0 bg-black/40"></div>
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="w-full md:w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
+        className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:w-[450px] absolute px-8 sm:px-12 md:px-16 py-12 sm:py-14 md:py-16 bg-black/75 backdrop-blur-sm my-20 sm:my-24 mx-4 sm:mx-auto right-0 left-0 text-white rounded-md shadow-2xl"
       >
-        <h1 className="font-bold text-3xl py-4">
+        <h1 className="font-bold text-2xl sm:text-3xl mb-6 sm:mb-8">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
 
@@ -104,30 +105,30 @@ const Login = () => {
             ref={name}
             type="text"
             placeholder="Full Name"
-            className="p-4 my-4 w-full bg-gray-700"
+            className="p-3 sm:p-4 my-2 w-full bg-gray-800 rounded-md border border-gray-700 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-all text-sm sm:text-base"
           />
         )}
         <input
           ref={email}
           type="text"
           placeholder="Email Address"
-          className="p-4 my-4 w-full bg-gray-700"
+          className="p-3 sm:p-4 my-2 w-full bg-gray-800 rounded-md border border-gray-700 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-all text-sm sm:text-base"
         />
         <input
           ref={password}
           type="password"
           placeholder="Password"
-          className="p-4 my-4 w-full bg-gray-700"
+          className="p-3 sm:p-4 my-2 w-full bg-gray-800 rounded-md border border-gray-700 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-all text-sm sm:text-base"
         />
-        <p className="text-red-500 font-bold text-lg py-2">{errorMessage}</p>
+        <p className="text-red-500 font-bold text-xs sm:text-sm py-2">{errorMessage}</p>
         <button
           type="button"
-          className="p-4 my-6 bg-red-700 w-full rounded-lg"
+          className="p-3 sm:p-4 my-4 sm:my-6 bg-red-600 hover:bg-red-700 w-full rounded-md font-semibold text-sm sm:text-base transition-colors duration-200 min-h-[44px]"
           onClick={handleButtonClick}
         >
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
-        <p className="py-4 cursor-pointer" onClick={toggleSignInForm}>
+        <p className="py-3 sm:py-4 cursor-pointer text-sm sm:text-base text-gray-400 hover:text-white transition-colors" onClick={toggleSignInForm}>
           {isSignInForm
             ? "New to Netflix? Sign Up Now"
             : "Already registered? Sign In Now."}

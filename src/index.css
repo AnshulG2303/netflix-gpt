@@ -1,7 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* Hide scrollbar for horizontal scroll containers */
+
+/* Hide scrollbar while maintaining scroll functionality */
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Existing scrollbar hiding utility */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }

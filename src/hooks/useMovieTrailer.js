@@ -8,22 +8,24 @@ const useMovieTrailer = (movieId) => {
 
   const trailerVideo = useSelector((store) => store.movies.trailerVideo);
 
-  const getMovieVideos = async () => {
-    const data = await fetch(
-      "https://api.themoviedb.org/3/movie/" +
+  useEffect(() => {
+    const getMovieVideos = async () => {
+      const data = await fetch(
+        "https://api.themoviedb.org/3/movie/" +
         movieId +
         "/videos?language=en-US",
-      API_OPTIONS
-    );
-    const json = await data.json();
+        API_OPTIONS
+      );
+      const json = await data.json();
 
-    const filterData = json.results.filter((video) => video.type === "Trailer");
-    const trailer = filterData.length ? filterData[0] : json.results[0];
-    dispatch(addTrailerVideo(trailer));
-  };
-  useEffect(() => {
+      const filterData = json.results.filter(
+        (video) => video.type === "Trailer"
+      );
+      const trailer = filterData.length ? filterData[0] : json.results[0];
+      dispatch(addTrailerVideo(trailer));
+    };
     !trailerVideo && getMovieVideos();
-  }, []);
+  }, [movieId, trailerVideo, dispatch]);
 };
 
 export default useMovieTrailer;
